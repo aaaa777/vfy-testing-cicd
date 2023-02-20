@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  vscsrv:
+    build: .
+    volumes:
+      - "/home/ubuntu/.vscode-cli/token.json:/root/.vscode-cli/token.json"
+      - "/home/ubuntu/.vscode-cli/code_tunnel.json:/root/.vscode-cli/code_tunnel.json"
+      - "/home/ubuntu/.vscode-cli/license_consent.json:/root/.vscode-cli/license_consent.json"

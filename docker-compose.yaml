@@ -2,7 +2,7 @@ version: "3"
 
 services:
   vscsrv:
-    build: .
+    build: ./docker/vscode-server/arm64
     volumes:
       - "/home/ubuntu/.vscode-cli/token.json:/root/.vscode-cli/token.json"
       - "/home/ubuntu/.vscode-cli/code_tunnel.json:/root/.vscode-cli/code_tunnel.json"

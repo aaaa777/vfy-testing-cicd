@@ -2,7 +2,19 @@ FROM debian:11
 
 RUN mkdir -p /workspace && cd /workspace \
  && apt update \
- && apt install -y curl git wget nano
+ && apt install -y curl git wget nano \
+                   nodejs npm
+RUN npm install -g @vue/cli \
+ && npm install -g @vue/cli-init \
+ && npm install -g n \
+ && npm install -g firebase-tools
+
+RUN type -p curl >/dev/null || apt install curl -y \
+ && curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+ && chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+ && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+ && apt update \
+ && apt install gh -y
 
 WORKDIR /workspace
 

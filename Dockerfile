@@ -4,6 +4,7 @@ RUN mkdir -p /workspace && cd /workspace \
  && apt update \
  && apt install -y curl git wget nano \
                    nodejs npm
+
 RUN npm install -g @vue/cli \
  && npm install -g @vue/cli-init \
  && npm install -g n \
@@ -25,9 +26,9 @@ RUN wget https://aka.ms/vscode-server-launcher/aarch64-unknown-linux-gnu \
  && mv aarch64-unknown-linux-gnu /usr/local/lib/vscode-server/ \
  && ln -s /usr/local/lib/vscode-server/aarch64-unknown-linux-gnu /usr/local/bin/vscode-server
 
-COPY --chmod=755 start.sh /workspace/
+COPY --chmod=755 entrypoint.sh /
 
-CMD ["./start.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 # && code-server \
 #  --install-extension ms-python.python \
 #  --install-extension ms-ceintl.vscode-language-pack-ja

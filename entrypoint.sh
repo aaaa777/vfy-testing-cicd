@@ -40,4 +40,4 @@ if [ ! -e "/root/.vscode-cli/code_tunnel.json" ]; then
 fi
 
 # launch
-vscode-server
+vscode-server --accept-server-license-terms

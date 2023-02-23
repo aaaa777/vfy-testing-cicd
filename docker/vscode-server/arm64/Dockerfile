@@ -5,7 +5,7 @@ FROM debian:11
 
 RUN mkdir -p /workspace && cd /workspace \
  && apt update \
- && apt install -y curl git wget nano \
+ && apt install -y curl git wget nano jq \
   ca-certificates gnupg lsb-release
 
 

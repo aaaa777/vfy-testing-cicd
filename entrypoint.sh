@@ -20,6 +20,15 @@ if [ -n "$DOTFILES_REPO_URL"]; then
   cd /workspace
 fi
 
+# set git config
+if [ -n "$GIT_USER_NAME"]; then
+  git config --global user.name "$GIT_USER_NAME"
+fi
+
+if [ -n "$GIT_USER_EMAIL"]; then
+  git config --global user.email "$GIT_USER_EMAIL"
+fi
+
 # set container id tunnel name
 if [ -z "$TUNNEL_NAME" ]; then
   TUNNEL_NAME="container-$(echo $HOSTNAME | cut -c 1-10)"
